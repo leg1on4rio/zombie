@@ -9,7 +9,7 @@ jobs:
   build_primeiro_commit:
     name: build commit 1
     runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, 'primeiro commit') }}
+    if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
     #if: "contains(github.event.head_commit.message, 'primeiro commit'"
     steps:
       - uses: actions/checkout@v2
