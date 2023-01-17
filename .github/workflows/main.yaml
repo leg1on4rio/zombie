@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     if: "contains(github.event.head_commit.message, 'primeiro commit'"
     steps:
+      - uses: actions/checkout@v2
       - name: 1º commit
         run: echo "buildando com primeiro commit."
   
