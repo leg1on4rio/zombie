@@ -12,7 +12,7 @@ jobs:
     if: "contains(github.event.head_commit.message, '[primeiro commit]'"
     steps:
       - name: 1º commit
-        run: echo "buildando com primeiro commit"
+        run: echo "buildando com primeiro commit."
   
   build_segundo_commit_ou_mais:
     name: build commit 2 ou mais
