@@ -23,4 +23,4 @@ jobs:
     steps:
       - name: 2º commit ou mais
         run: |
-              echo "buildando com segundo commit ou mais."
+              echo "buildando com segundo commit ou mais"
