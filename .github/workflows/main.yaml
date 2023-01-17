@@ -14,7 +14,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: 1º commit
-        run: echo "buildando com primeiro commit."
+        run: echo "buildando com primeiro commit"
   
   build_segundo_commit_ou_mais:
     name: build commit 2 ou mais
@@ -22,4 +22,4 @@ jobs:
     steps:
       - name: 2º commit ou mais
         run: |
-              echo "buildando com segundo commit ou mais."
+              echo "buildando com segundo commit ou mais"
