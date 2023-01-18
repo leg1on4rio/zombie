@@ -9,18 +9,25 @@ jobs:
   build_primeiro_commit:
     name: build commit 1
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
+    #if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
     #if: "contains(github.event.head_commit.message, 'primeiro commit'"
     steps:
       - uses: actions/checkout@v2
       - name: 1º commit
+        if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
         run: echo "buildando com primeiro commit."
-  
-  build_segundo_commit_ou_mais:
-    name: build commit 2 ou mais
-    runs-on: ubuntu-latest
-    if: ${{ !contains(github.event.head_commit.message, 'primeiro commit') }}
-    steps:
       - name: 2º commit ou mais
+        if: ${{ !contains(github.event.head_commit.message, 'primeiro commit') }}
         run: |
-              echo "buildando com segundo commit ou mais."
+          echo "buildando com segundo commit ou mais."
+        
+        
+  
+  #build_segundo_commit_ou_mais:
+  #  name: build commit 2 ou mais
+  #  runs-on: ubuntu-latest
+  #  if: ${{ !contains(github.event.head_commit.message, 'primeiro commit') }}
+  #  steps:
+   #   - name: 2º commit ou mais
+   #     run: |
+    #          echo "buildando com segundo commit ou mais."
