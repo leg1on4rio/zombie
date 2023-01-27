@@ -17,7 +17,7 @@ jobs:
         if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
         run: echo "buildando com primeiro commit."
       - name: 2º commit ou mais
-        if: ${{ !contains(github.event.head_commit.message, 'primeiro commit') }}
+        #if: ${{ !contains(github.event.head_commit.message, 'primeiro commit') }}
         run: |
           echo "buildando com segundo commit ou mais...."
         
