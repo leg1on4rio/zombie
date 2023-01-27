@@ -2,9 +2,9 @@ name: testando i-f
 on:
   workflow_dispatch:
   push:
-    branches: #["*"] 
-      - !main
-
+    branches-ignore:
+      - main
+    
 jobs:
   build_primeiro_commit:
     name: Buildando o app e testando o IF
