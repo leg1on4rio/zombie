@@ -34,7 +34,7 @@ jobs:
       - name: 2º commit ou mais
         if: ${{ !env.initial_commit }}
         run: |
-          echo "buildando com segundo commit ou mais.."
+          echo "buildando com segundo commit ou mais..."
         
         
   
