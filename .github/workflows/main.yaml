@@ -2,8 +2,8 @@ name: testando i-f
 on:
   workflow_dispatch:
   push:
-    branches-ignore: #ignorar somente branchs da lista:
-      - main
+    #branches-ignore: #ignorar somente branchs da lista:
+    #  - main
     
 jobs:
   build_primeiro_commit:
