@@ -19,14 +19,14 @@ jobs:
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           if [ "$COMMIT_MESSAGE" == "initial commit" ]; then
-          echo "This is the initial commit."
+          echo "initial_commit=true" >> $GITHUB_ENV
           else
           echo "This is not the initial commit."
           exit 1
           fi
           
       - name:  commit
-        run: echo ${{steps.initial_commit_check.outputs.status}}
+        run: echo ${{env.initial_commit}}
        #if: steps.initial_commit_check.outputs.status == 'success'
       - name: 1º commit
         if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
