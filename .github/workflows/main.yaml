@@ -22,7 +22,7 @@ jobs:
           echo "initial_commit=true" >> $GITHUB_ENV
           else
           echo "This is not the initial commit."
-          exit 1
+          #exit 1
           fi
           
       - name:  commit
