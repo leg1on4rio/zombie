@@ -1,40 +1,54 @@
 name: testando i-f
 on:
   workflow_dispatch:
-  push:
+  pull_request:
+    types:
+      - closed
+jobs:
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo The PR was merged
+
+
+# on:
+#   workflow_dispatch:
+#   push:
     #branches-ignore: #ignorar somente branchs da lista:
      # - main
     
-jobs:
-  build_primeiro_commit:
-    name: Buildando o app e testando o IF
-    runs-on: ubuntu-latest
-    #if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
-    #if: "contains(github.event.head_commit.message, 'primeiro commit'"
-    steps:
+# jobs:
+#   build_primeiro_commit:
+#     name: Buildando o app e testando o IF
+#     runs-on: ubuntu-latest
+#     #if: ${{ contains(github.event.head_commit.message, 'primeiro commit') }}
+#     #if: "contains(github.event.head_commit.message, 'primeiro commit'"
+#     steps:
       
-      - uses: actions/checkout@v2
-      - name: Verify initial commit
-        id: initial_commit_check
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          if [ "$COMMIT_MESSAGE" == "initial commit" ]; then
-          echo "initial_commit=true" >> $GITHUB_ENV
-          else
-          echo "This is not the initial commit."
-          #exit 1
-          fi
+#       - uses: actions/checkout@v2
+#       - name: Verify initial commit
+#         id: initial_commit_check
+#         run: |
+#           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+#           if [ "$COMMIT_MESSAGE" == "initial commit" ]; then
+#           echo "initial_commit=true" >> $GITHUB_ENV
+#           else
+#           echo "This is not the initial commit."
+#           #exit 1
+#           fi
           
-      - name:  commit
-        run: echo ${{env.initial_commit}}
-       #if: steps.initial_commit_check.outputs.status == 'success'
-      - name: 1º commit
-        if: ${{ env.initial_commit }}
-        run: echo "buildando com primeiro commit."
-      - name: 2º commit ou mais
-        if: ${{ !env.initial_commit }}
-        run: |
-          echo "buildando com segundo commit ou mais..."
+#       - name:  commit
+#         run: echo ${{env.initial_commit}}
+#        #if: steps.initial_commit_check.outputs.status == 'success'
+#       - name: 1º commit
+#         if: ${{ env.initial_commit }}
+#         run: echo "buildando com primeiro commit."
+#       - name: 2º commit ou mais
+#         if: ${{ !env.initial_commit }}
+#         run: |
+#           echo "buildando com segundo commit ou mais..."
         
         
   
